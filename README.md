@@ -3,6 +3,10 @@ WordPress plugin and theme deployment script. This is a WordPress plugin that in
 
 Use this WordPress plugin to install and deploy preferred plugin and theme sets.
 
+# Use Case
+* Quickly install plugin and theme packages
+* Quickly reset plugin and theme packages
+
 # Instructions
 The terminology:
 

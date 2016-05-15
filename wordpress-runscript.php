@@ -1,12 +1,11 @@
 <?php
-
 /*
 Plugin Name: WordPress Runscript
 Plugin URI: https://github.com/VR51/WordPress-Runscript
 Description: WordPress plugin and theme package deployment script. This will run as soon as activated. Install basic plugins, eCommerce plugins, admin tools, feature extras and themes. Deploy specific packages.
 Author: Lee Hodson
 Author URI: https://vr51.com
-Version: 1.0.0
+Version: 1.0.1
 License: GPL
 */
 
@@ -34,6 +33,18 @@ License: GPL
 * The plugin will deactivate itself after it has run. You must delete the plugin immediately it has completed its task. Do not leave active under any circumstances.
 *
 **/
+
+
+/**
+*
+* Security First!
+*
+**/
+
+if ( !function_exists( 'add_action' ) ) {
+	echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
+	exit;
+}
 
 
 /**
@@ -286,7 +297,7 @@ unlink("$pluginpath/file.zip");
 
 /**
 *
-*	Self deactivate the Run Script
+*	Self deactivate the Runscript
 *
 **/
 
@@ -298,7 +309,9 @@ function vr_run_script_deactivate() {
 }
 
 function vr_run_script_admin_notice() {
-	echo '<div class="notice-success"><p><strong>VR51 WordPress Run Script</strong> has been deactivated. Deployed plugins and themes are installed ready for activation. You must now delete the plugin <strong>VR51 WordPress Run Script</strong>.</p></div>';
-	if ( isset( $_GET['activate'] ) )
-	unset( $_GET['activate'] );
+	if ( current_user_can( 'install_plugins' ) ) {
+		echo '<div class="notice notice-success is-dismissible"><h1>Run Completed</h1><p><strong>WordPress Runscript</strong> has been deactivated. Deployed plugins and themes are installed ready for activation. You must now delete the plugin <strong>WordPress Runscript</strong>.</p></div>';
+		if ( isset( $_GET['activate'] ) )
+			unset( $_GET['activate'] );
+	}
 }
