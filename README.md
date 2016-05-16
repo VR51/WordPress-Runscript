@@ -10,7 +10,7 @@ Use this WordPress plugin to install and deploy preferred plugin and theme sets.
 # Instructions
 WordPress Runscript downloads and installs plugins and themes from any publicly accessible plugin or theme repository such as wordpress.org or github.com. It also deploys plugins and themes that are stored locally within the WordPress Runscript plugin directory. The plugins and themes are not automatically activated - we download or deploy files only.
 
-The default plugin sets included with WordPress Runscript install a base plugin pack plus plugins for eCommerce, backend admin and fronend features. The default theme set installs 2 themes.
+The default plugin sets included with WordPress Runscript install a base plugin pack plus plugins for eCommerce, backend admin and frontend features. The default theme set installs 2 themes.
 
 The terminology:
 
@@ -39,7 +39,7 @@ To see plugin lists provided with WordPress Runscript: https://github.com/VR51/W
 No configuration is needed unless you want to disable use of specific plugin lists. Edit the file wordpress-runscript.php and look around line 54 where it reads "START CONFIGURATION HERE" to enable or disable specific lists.
 
 # Take Note
-WordPress Runscript will run as soon as activated. The plugin is configured to run for no longer than 10 minutes. Adjust the execution time limit in set_time_limit(600) around line 212 of this file if more time is required.
+WordPress Runscript will run as soon as activated. The plugin is configured to run for no longer than 10 minutes. Adjust the execution time limit in set_time_limit(600) around line 103 of this file if more time is required.
 
 WordPress Runscript will deactivate itself after it has run. You must delete the plugin immediately it has completed its task. Do not leave active or installed under any circumstances.
 
@@ -52,7 +52,7 @@ To always get the most recent stable version of a plugin hosted on wordpress.org
 # What WordPress Runscript Does Not Do
 * Plugins and themes are not activated after installation
 * Any existing plugin or theme files in wp-content/plugins or wp-content/themes are not removed.
-* Where plugin or themes have matching directory names (likely because they are the same plugin or theme as being installed), the new version is written into the existing directory and sname named files are overwritten.
+* Where plugin or themes have matching directory names (likely because they are the same plugin or theme as being installed), the new version is written into the existing directory and same named files are overwritten.
 * WordPress Runscipt will happily refresh an existing plugin install but because it does not remove existing files (only overwrites same named files) WP Runscript is not suited to malware removal application unless existing files are removed manually.
 
 # Donations Welcome
