@@ -43,11 +43,13 @@ WordPress Runscript will run as soon as activated. The plugin is configured to r
 
 WordPress Runscript will deactivate itself after it has run. You must delete the plugin immediately it has completed its task. Do not leave active or installed under any circumstances.
 
-# Tip
+# Pro Tips
 To always get the most recent stable version of a plugin hosted on wordpress.org, change the version number in the download URL to '.latest-stable.zip', for example
 
 * From: https://downloads.wordpress.org/plugin/wp-admin-ui-customize.1.5.9.zip
 * To:  https://downloads.wordpress.org/plugin/wp-admin-ui-customize.latest-stable.zip
+
+Export/Import plugin settings from one install to another with https://wordpress.org/plugins/options-importer/
 
 # What WordPress Runscript Does Not Do
 * Plugins and themes are not activated after installation
