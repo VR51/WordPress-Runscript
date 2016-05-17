@@ -15,7 +15,7 @@ The default plugin sets included with WordPress Runscript install a base plugin 
 The terminology:
 
 * When we say 'install' we mean download from some URL and install the downloaded file into wp-content/plugins or wp-content/themes
-* When we say 'deploy' we mean move plugin and theme packages from WordPress-Runscript-master/wp-content/plugins or WordPress-Runscipt-master/wp-content/themes and deploy them into site/wp-content/plugins or site/wp-content/themes.
+* When we say 'deploy' we mean move plugin and theme packages from WordPress-Runscript-master/plugins or WordPress-Runscipt-master/themes and deploy them into site/wp-content/plugins or site/wp-content/themes.
 
 Plugins and themes 'installed' by WordPress Runscript can be hosted anywhere on the internet. The URL of the zip file must be publicly accessible.
 Plugins and themes 'deployed' by WordPress Runscript must be stored in zip format in the relevent subdirectory of the 'WordPress-Runscipt-master' directory.
