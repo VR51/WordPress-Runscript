@@ -23,8 +23,8 @@ Plugins and themes 'deployed' by WordPress Runscript must be stored in zip forma
 To download plugins and themes from a repository:
 
 * Open the directory wp-content/plugins/wordpress-runscript-master/lists
-* Add URL addresses for plugins to be download from a remote repository (such as from wordpress.org or github) into the appropriate plugin list at wp-content/plugins/wordpress-runscript-master/lists
-* Add URL addresses for themes to be download from a remote repository (such as from wordpress.org or github) into the theme list at wp-content/plugins/wordpress-runscript-master/lists/themes.txt
+* Add URL addresses for plugins to be downloaded from a remote repository (such as from wordpress.org or github) into the appropriate plugin list at wp-content/plugins/wordpress-runscript-master/lists
+* Add URL addresses for themes to be downloaded from a remote repository (such as from wordpress.org or github) into the theme list at wp-content/plugins/wordpress-runscript-master/lists/themes.txt
 * URLs must be placed one per line.
 * The plugin and theme files can be grabbed from be anywhere on the Internet e.g Github.com or wordpress.org
 
