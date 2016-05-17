@@ -8,3 +8,4 @@ https://downloads.wordpress.org/plugin/regenerate-thumbnails.latest-stable.zip
 https://downloads.wordpress.org/plugin/baw-force-plugin-updates.latest-stable.zip
 https://downloads.wordpress.org/plugin/look-see-security-scanner.latest-stable.zip
 https://downloads.wordpress.org/plugin/user-switching.latest-stable.zip
+https://downloads.wordpress.org/plugin/options-importer.latest-stable.zip
