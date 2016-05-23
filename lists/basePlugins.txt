@@ -1,0 +1,12 @@
+https://downloads.wordpress.org/plugin/jetpack.latest-stable.zip
+https://downloads.wordpress.org/plugin/wordfence.latest-stable.zip
+https://downloads.wordpress.org/plugin/digiproveblog.latest-stable.zip
+https://downloads.wordpress.org/plugin/heartbeat-control.latest-stable.zip
+https://downloads.wordpress.org/plugin/wp-optimize.latest-stable.zip
+https://downloads.wordpress.org/plugin/wp-notification-center.latest-stable.zip
+https://downloads.wordpress.org/plugin/wordpress-seo.latest-stable.zip
+https://downloads.wordpress.org/plugin/google-analytics-dashboard-for-wp.latest-stable.zip
+https://downloads.wordpress.org/plugin/tinymce-advanced.latest-stable.zip
+https://downloads.wordpress.org/plugin/lazy-load.latest-stable.zip
+https://downloads.wordpress.org/plugin/updraftplus.latest-stable.zip
+https://downloads.wordpress.org/plugin/mainwp-child.latest-stable.zip

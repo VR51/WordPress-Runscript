@@ -1,0 +1,3 @@
+https://downloads.wordpress.org/plugin/wordfence.latest-stable.zip
+https://downloads.wordpress.org/plugin/look-see-security-scanner.latest-stable.zip
+https://downloads.wordpress.org/plugin/updraftplus.latest-stable.zip

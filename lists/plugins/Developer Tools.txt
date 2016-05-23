@@ -1,0 +1,4 @@
+https://downloads.wordpress.org/plugin/theme-check.latest-stable.zip
+https://downloads.wordpress.org/plugin/plugin-inspector.latest-stable.zip
+https://downloads.wordpress.org/plugin/debug-bar.latest-stable.zip
+https://downloads.wordpress.org/plugin/child-theme-configurator.latest-stable.zip

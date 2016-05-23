@@ -1,0 +1,2 @@
+https://downloads.wordpress.org/plugin/genesis-super-customizer.latest-stable.zip
+https://downloads.wordpress.org/plugin/genesis-connect-woocommerce.latest-stable.zip

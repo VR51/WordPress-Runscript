@@ -1,0 +1,3 @@
+https://downloads.wordpress.org/plugin/image-watermark.latest-stable.zip
+https://downloads.wordpress.org/plugin/youtube-embed-plus.latest-stable.zip
+https://downloads.wordpress.org/plugin/enhanced-media-library.latest-stable.zip

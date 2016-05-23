@@ -1,0 +1,249 @@
+ 
+<?php
+/*
+Plugin Name: WordPress Runscript
+Plugin URI: https://github.com/VR51/WordPress-Runscript
+Description: WordPress plugin and theme package deployment. This plugin will run as soon as activated. Install WordPress Runscript as you do any other plugin. Use to install basic plugins, eCommerce plugins, admin tools, feature extras and themes. Deploy specific packages.
+Author: Lee Hodson
+Author URI: https://vr51.com
+Version: 1.2.0
+License: GPL
+*/
+
+/**
+*
+* Install and deploy plugin and theme compilation sets. Create custom plugin and theme lists. Include custom plugin zip files and theme zip files for deployment.
+*
+* The terminology:
+*
+*	When we say 'install' we mean download from some URL and install the file into wp-content/plugins or wp-content/themes
+*	When we say 'deploy' we mean move plugin and theme packages from WordPress-Runscript-master/wp-content/plugins or WordPress-Runscipt-master/wp-content/themes and deploy them into wp-content/plugins or wp-content/themes.
+*
+* Plugins and themes installed by this plugin can be hosted anywhere on the internet.
+* Plugins and themes deployed by this plugin must be stored in zip format in the relevent subdirectory of the 'WordPress-Runscipt-master' directory.
+* 
+* 1) Download the plugin and unpack it.
+* 2) Add URL addresses for plugins to be download from a remote repository (such as from wordpress.org or github) into a plugin list at wordpress-runscript/lists/plugins/
+* 3) Add URL addresses for themes to be download from a remote repository (such as from wordpress.org or github) into a theme list at wordpress-runscript/lists/themes/
+* 4) Add plugin zip files for plugins to be deployed by WordPress Runscript into WordPress-Runscipt/plugins/
+* 5) Add theme zip files for themes to be deployed by WordPress Runscript into WordPress-Runscipt/themes/
+* 6) Now zip up the WordPress Runscript directory that contains the edited plugin list URLs and zip packages
+* 7) Install WordPress Runscript into a WordPress site as you would any other WordPress plugin by going to Dashboard > Plugins > Upload
+* 8) Activate WordPress Ruscript and click the packages you want to install.
+*
+* WP Runscript automatically detects plugin lists, theme lists, plugin zip files and theme zip files.
+*
+* The plugin is configured to run for no longer than 10 minutes at a time. Adjust the execution time limit in set_time_limit(600) around line 212 of this file if more time is required.
+* Delete the plugin immediately you have finished using it. Do not leave WordPress Runscript active when not in use. Do not leave installed when not in use.
+*
+* Pro Tips:
+*
+* To always get the most recent stable version of a plugin hosted on wordpress.org, change the version number in the download URL to '.latest-stable.zip', for example
+*
+*	From: https://downloads.wordpress.org/plugin/wp-admin-ui-customize.1.5.9.zip
+*	To:  https://downloads.wordpress.org/plugin/wp-admin-ui-customize.latest-stable.zip
+**/
+
+/**
+*
+* Security First!
+*
+**/
+
+if ( !function_exists( 'add_action' ) ) {
+	echo "Hi there! I'm just a plugin, not much I can do when called directly.";
+	exit;
+}
+
+
+/**
+*
+*	Create Action Links for Plugin and Theme File Installers
+*
+**/
+
+// https://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_%28plugin_file_name%29
+
+add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'wprunscript_plugin_action_links' );
+
+function wprunscript_plugin_action_links( $links ) {
+// admin_url()
+	// Scan 'lists' directory for files and automatically produce an action link for each .txt plugin list or theme list found
+	
+	$links[] = '<p><strong>Select Packages to Install</strong></p>';
+
+	foreach (scandir(plugin_dir_path(__FILE__).'lists/plugins') as $file) {
+		$extension = pathinfo($file, PATHINFO_EXTENSION);
+		if ($extension == 'txt') {
+		
+			$links[] = '<a href="'. esc_url( plugins_url() . '/' . plugin_basename(__FILE__) ) .'?pluginCollection='. $file .'&pluginValue=1">'. str_replace('.txt', '', "$file") .'</a>';
+
+		}
+	}
+	
+	foreach (scandir(plugin_dir_path(__FILE__).'lists/themes') as $file) {
+		$extension = pathinfo($file, PATHINFO_EXTENSION);
+		if ($extension == 'txt') {
+
+			$links[] = '<a href="'. esc_url( plugins_url() . '/'  . plugin_basename(__FILE__) ) .'?themeCollection='. $file .'&themeValue=1">'. str_replace('.txt', '', "$file") .'</a>';
+			
+		}
+	}
+	
+	// Add action links for locally stored files too
+	$links[] = '<p><a href="'. esc_url( plugins_url() . '/'  . plugin_basename(__FILE__) ) .'?deployPlugins=1">Local Plugins</a>';
+	$links[] = '<a href="'. esc_url( plugins_url() . '/'  . plugin_basename(__FILE__) ) .'?deployThemes=1">Local Themes</a></p>';
+
+	// Add action links for all
+	$links[] = '<p><a href="'. esc_url( plugins_url() . '/'  . plugin_basename(__FILE__) ) .'?allThemes=1">All Themes</a>';
+	$links[] = '<a href="'. esc_url( plugins_url() . '/'  . plugin_basename(__FILE__) ) .'?allPlugins=1">All Plugins</a></p>';
+	
+	return $links;
+}
+
+
+/**
+*
+*	Set the install/deploy variable values
+*
+**/
+
+$pluginCollection = $_GET['pluginCollection'];
+$pluginValue = $_GET['pluginValue'];
+
+$themeCollection = $_GET['themeCollection'];
+$themeValue = $_GET['themeValue'];
+
+$deployPlugins = $_GET['deployPlugins'];
+$deployThemes = $_GET['deployThemes'];
+
+
+/* Set 10 minute execution time */
+
+set_time_limit(600);
+
+
+/**
+*
+*	Server paths
+*
+**/
+
+require_once(ABSPATH . 'wp-admin/includes/file.php');
+
+$contentpath = get_home_path().'wp-content/';
+
+$wppluginpath = get_home_path().'wp-content/plugins/';
+$wpthemepath = get_home_path().'wp-content/themes/';
+
+$payloadpluginpath = plugin_dir_path(__FILE__).'plugins';
+$payloadthemepath = plugin_dir_path(__FILE__).'themes';
+
+
+/**
+*
+*	Download and install plugins and themes from remote sources
+*
+*	$file = Name of file to be read
+*	$destdir = The dirctory where downloaded files will be unzipped
+*
+**/
+
+function vr_grab_remote_files($file, $type, $destdir) {
+
+	if ( $type=='plugin' ) {
+		$dir = 'lists/plugins';
+	} else {
+		$dir = 'lists/themes';
+	}
+
+	if ( $file_handle = fopen(plugin_dir_path(__FILE__).$dir."/$file", "r") ) {
+
+		while (!feof($file_handle)) {
+			$line = trim(fgets($file_handle));
+
+			copy("$line", "$destdir/file.zip");
+			$zip = new ZipArchive;
+			$res = $zip->open("$destdir/file.zip");
+			if ($res === TRUE) {
+				$zip->extractTo($destdir);
+				$zip->close();
+				unlink("$destdir/file.zip");
+			}
+
+		}
+		fclose($file_handle);
+
+	}
+
+}
+
+if ( $pluginValue=='1' ) {
+	vr_grab_remote_files ("$pluginCollection", 'plugin', "$wppluginpath");
+}
+
+
+if ( $themeValue=='1' ) {
+	vr_grab_remote_files ("$themeCollection", 'theme', "$wpthemepath");
+}
+
+
+/**
+*
+*	Move plugins and themes from WordPress Runscript's plugins and themes directories
+*
+**/
+
+function vr_deploy_payload( $sourcedir, $destdir) {
+	// Establish the directory to scan
+	$dircontents = scandir("$sourcedir");
+	// Read files in the directory
+	foreach ($dircontents as $file) {
+		$extension = pathinfo($file, PATHINFO_EXTENSION);
+		if ($extension == 'zip') {
+			// Unzip to correct WP directory
+			copy("$sourcedir/$file", "$destdir/$file");
+			$zip = new ZipArchive;
+			$res = $zip->open("$destdir/$file");
+			if ($res === TRUE) {
+				$zip->extractTo($destdir);
+				$zip->close();
+				unlink("$destdir/$file");
+			}
+
+		}
+	}
+
+}
+
+if ( $deployPlugins=='1' ) {
+	vr_deploy_payload ("$payloadpluginpath","$wppluginpath");
+}
+
+if ( $deployThemes=='1' ) {
+	vr_deploy_payload ("$payloadthemepath","$wpthemepath");
+}
+
+
+/**
+*
+*	Self deactivate the Runscript
+*
+**/
+
+/*
+function vr_run_script_deactivate() {
+	deactivate_plugins( plugin_basename( __FILE__ ) );
+}
+
+function vr_run_script_admin_notice() {
+	if ( current_user_can( 'install_plugins' ) ) {
+		echo '<div class="notice notice-success is-dismissible"><h1>Run Completed</h1><p><strong>WordPress Runscript</strong> has been deactivated. Deployed plugins and themes are installed ready for activation. You must now delete the plugin <strong>WordPress Runscript</strong>.</p></div>';
+		if ( isset( $_GET['activate'] ) )
+			unset( $_GET['activate'] );
+	}
+}
+
+add_action( 'admin_notices', 'vr_run_script_admin_notice' );
+add_action( 'admin_init', 'vr_run_script_deactivate' );
+*/

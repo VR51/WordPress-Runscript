@@ -1,5 +1,5 @@
 # WordPress Runscript
-Simple WordPress plugin and theme deployment. This is a WordPress plugin that installs a configurable default set of plugins and themes into a WordPress site.
+Simple WordPress plugin and theme deployment. WordPress Runscript installs plugins and themes from configurable compilation lists.
 
 Use this WordPress plugin to install and deploy preferred plugin and theme sets.
 
@@ -7,10 +7,29 @@ Use this WordPress plugin to install and deploy preferred plugin and theme sets.
 * Quickly install plugin and theme packages
 * Quickly reset plugin and theme packages
 
-# Instructions
+# Background
 WordPress Runscript downloads and installs plugins and themes from any publicly accessible plugin or theme repository such as wordpress.org or github.com. It also deploys plugins and themes that are stored locally within the WordPress Runscript plugin directory. The plugins and themes are not automatically activated - we download or deploy files only.
 
-The default plugin sets included with WordPress Runscript install a base plugin pack plus plugins for eCommerce, backend admin and frontend features. The default theme set installs 2 themes.
+Collections that ship with WP Runscript:
+
+- Admin Tools
+- Base Plugins
+- Copy Protection
+- Developer Tools
+- Feature Plugins
+- Genesis Theme Plugins
+- Media Plugins
+- Optimization
+- Security and Backup Plugins
+- WooCommerce Plugins
+- Themes
+
+All lists are configurable. You can select which lists to use. You can add your own lists and WP Runscript will automatically detect them and add them to the settings panel.
+
+Additionally, there are two locations for .zip files to be stored ready for deployment. The otions panel shows them as:
+
+- Local Plugins
+- Local Themes
 
 The terminology:
 
@@ -20,13 +39,25 @@ The terminology:
 Plugins and themes 'installed' by WordPress Runscript can be hosted anywhere on the internet. The URL of the zip file must be publicly accessible.
 Plugins and themes 'deployed' by WordPress Runscript must be stored in zip format in the relevent subdirectory of the 'WordPress-Runscipt-master' directory.
 
-To download plugins and themes from a repository:
+# Instructions
+To use WP Runscript as is:
 
-* Open the directory wp-content/plugins/wordpress-runscript-master/lists
-* Add URL addresses for plugins to be downloaded from a remote repository (such as from wordpress.org or github) into the appropriate plugin list at wp-content/plugins/wordpress-runscript-master/lists
-* Add URL addresses for themes to be downloaded from a remote repository (such as from wordpress.org or github) into the theme list at wp-content/plugins/wordpress-runscript-master/lists/themes.txt
-* URLs must be placed one per line.
-* The plugin and theme files can be grabbed from be anywhere on the Internet e.g Github.com or wordpress.org
+- Download WP Runscript.
+- Install WordPress Runscript into a WordPress site as you would any other WordPress plugin by going to Dashboard > Plugins > Upload
+- Activate WordPress Ruscript and click 'Settings' under the plugin name or go to Dashboard > Settings > WordPress Runscript.
+- Select packages to install. Click 'Confirm Selection'. Click 'Install Selection'.
+
+To configure the lists of plugins and themes to be downloaded and installed:
+
+- Download WP Runscript
+- Unpack the package
+- Open the directory wp-content/plugins/wordpress-runscript-master/lists
+- Add URL addresses for plugins to be download from a remote repository (such as from wordpress.org or github) into a plugin list at wordpress-runscript/lists/plugins/
+- Add URL addresses for themes to be download from a remote repository (such as from wordpress.org or github) into a theme list at wordpress-runscript/lists/themes/
+- Now zip up the WordPress Runscript directory that contains the edited plugin list URLs and zip packages
+- Install WordPress Runscript into a WordPress site as you would any other WordPress plugin by going to Dashboard > Plugins > Upload
+- Activate WordPress Ruscript and click 'Settings' under the plugin name or go to Dashboard > Settings > WordPress Runscript.
+- Select packages to install. Click 'Confirm Selection'. Click 'Install Selection'.
 
 To deploy plugins and themes with the WordPress Runscript package:
 
@@ -35,21 +66,17 @@ To deploy plugins and themes with the WordPress Runscript package:
 
 To see plugin lists provided with WordPress Runscript: https://github.com/VR51/WordPress-Runscript/tree/master/lists
 
-# Configuration
-No configuration is needed unless you want to disable use of specific plugin lists. Edit the file wordpress-runscript.php and look around line 54 where it reads "START CONFIGURATION HERE" to enable or disable specific lists.
+# Settings Configuration
+The plugin settings are located at WordPress Dashboard > Settings > WordPress Runscript.
 
 # Take Note
-WordPress Runscript will run as soon as activated. The plugin is configured to run for no longer than 10 minutes. Adjust the execution time limit in set_time_limit(600) around line 103 of this file if more time is required.
+You must delete the plugin immediately it has completed its task. Do not leave active or installed under any circumstances.
 
-WordPress Runscript will deactivate itself after it has run. You must delete the plugin immediately it has completed its task. Do not leave active or installed under any circumstances.
-
-# Pro Tips
+# Tip
 To always get the most recent stable version of a plugin hosted on wordpress.org, change the version number in the download URL to '.latest-stable.zip', for example
 
 * From: https://downloads.wordpress.org/plugin/wp-admin-ui-customize.1.5.9.zip
 * To:  https://downloads.wordpress.org/plugin/wp-admin-ui-customize.latest-stable.zip
-
-Export/Import plugin settings from one install to another with https://wordpress.org/plugins/options-importer/
 
 # What WordPress Runscript Does Not Do
 * Plugins and themes are not activated after installation
@@ -58,9 +85,17 @@ Export/Import plugin settings from one install to another with https://wordpress
 * WordPress Runscipt will happily refresh an existing plugin install but because it does not remove existing files (only overwrites same named files) WP Runscript is not suited to malware removal application unless existing files are removed manually.
 
 # Donations Welcome
+Did you find this plugin useful? Buy me a new toy to play with.
+
 Send donations to https://paypal.me/vr51
 
 # Changelog
+## 2.0.0
+- Complete overhaul of code, configuration and processing.
+- Removed need to edit variables in the main plugin file.
+- Moved options to an admin settings page. Install the plugin, go to Settings > WordPress Runscript, select the plugin and theme compilation packages to install, click 'Confirm Selection' then click 'Install Selection'.
+- Add as many plugin and theme lists to wordpress-runsript/lists/ as you want. The settings panel will build itself to match the number of available lists.
+- More to come...
 
 ## 1.1.0
 - Major change to the way repository plugin sets are created. Change made to simplify plugin configuration.
