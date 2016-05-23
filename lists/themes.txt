@@ -1,2 +1,0 @@
-https://github.com/presscustomizr/customizr/archive/master.zip
-https://github.com/Automattic/_s/archive/master.zip

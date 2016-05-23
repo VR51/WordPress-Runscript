@@ -1,5 +1,0 @@
-https://downloads.wordpress.org/plugin/live-composer-page-builder.latest-stable.zip
-https://downloads.wordpress.org/plugin/image-watermark.latest-stable.zip
-https://downloads.wordpress.org/plugin/ajax-search-lite.latest-stable.zip
-https://downloads.wordpress.org/plugin/wpdiscuz.latest-stable.zip
-https://downloads.wordpress.org/plugin/paid-memberships-pro.latest-stable.zip
