@@ -1,6 +1,7 @@
 https://downloads.wordpress.org/plugin/wp-sweep.latest-stable.zip
 https://downloads.wordpress.org/plugin/wp-admin-ui-customize.latest-stable.zip
 https://downloads.wordpress.org/plugin/advanced-custom-fields.latest-stable.zip
+https://downloads.wordpress.org/plugin/acf-php-vars.latest-stable.zip
 https://downloads.wordpress.org/plugin/easy.latest-stable.zip
 https://downloads.wordpress.org/plugin/regenerate-thumbnails.latest-stable.zip
 https://downloads.wordpress.org/plugin/baw-force-plugin-updates.latest-stable.zip

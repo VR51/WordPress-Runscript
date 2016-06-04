@@ -2,3 +2,4 @@ https://downloads.wordpress.org/plugin/jetpack.latest-stable.zip
 https://downloads.wordpress.org/plugin/wordpress-seo.latest-stable.zip
 https://downloads.wordpress.org/plugin/google-analytics-dashboard-for-wp.latest-stable.zip
 https://downloads.wordpress.org/plugin/tinymce-advanced.latest-stable.zip
+https://downloads.wordpress.org/plugin/tinymce-templates.latest-stable.zip
