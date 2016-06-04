@@ -44,26 +44,55 @@ License: GPL
 *	To:  https://downloads.wordpress.org/plugin/wp-admin-ui-customize.latest-stable.zip
 **/
 
-/* Idea
+/* Ideas
+
+Package Removal
+
+	Detect directory name from download slug
+
 Clean Install All Installed Plugins/Themes
 
-Read plugins directory for
+	Read plugins directory for
 
-	all directory names
+		all directory names
 
-Ping
+	Ping
 
-	https://downloads.wordpress.org/plugin/ + directory name + .latest-stable.zip
+		https://downloads.wordpress.org/plugin/ + directory name + .latest-stable.zip
 
-If file exists
+	If file exists
 
-	Download zip
+		Download zip
 
-	Delete existing directory
+		Delete existing directory
 
-	Unpack zip
+		Unpack zip
 
-Echo file downloaded / file not found
+	Echo file downloaded / file not found
+	
+File Mod
+
+	Append/Overwrite
+
+	php.ini (deliver to blog root and wp-admin)
+	wp-config.php (deliver into)
+	.htaccess (prepend or append)
+	
+	Add directory for Files
+	Autodetect file name (wp-config/php.ini/phprc.ini/.htaccess/.htaccessrc)
+	Add notice that some servers ignore pph.ini directives
+	Warn that misconfigurations can crash sites/servers
+	
+Import Compilation Packs from Github Gists
+
+	Import screen
+		Download URL
+		Select Type (Plugin List, Theme List, File Mod)
+		
+SECURITY
+
+	Check lists contain URLs
+	
 */
 
 /**
