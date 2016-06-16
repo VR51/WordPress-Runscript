@@ -14,13 +14,16 @@ Collections that ship with WP Runscript:
 
 - Admin Tools
 - Base Plugins
+- Blog Organization
 - Copy Protection
 - Developer Tools
+- Experimental
 - Feature Plugins
 - Genesis Theme Plugins
 - Media Plugins
 - Optimization
 - Security and Backup Plugins
+- Useful Widgets
 - WooCommerce Plugins
 - Themes
 
