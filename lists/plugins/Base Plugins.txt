@@ -3,3 +3,4 @@ https://downloads.wordpress.org/plugin/wordpress-seo.latest-stable.zip
 https://downloads.wordpress.org/plugin/google-analytics-dashboard-for-wp.latest-stable.zip
 https://downloads.wordpress.org/plugin/tinymce-advanced.latest-stable.zip
 https://downloads.wordpress.org/plugin/tinymce-templates.latest-stable.zip
+https://downloads.wordpress.org/plugin/default-featured-image.latest-stable.zip
