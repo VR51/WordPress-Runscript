@@ -1,3 +1,3 @@
 https://downloads.wordpress.org/plugin/genesis-super-customizer.latest-stable.zip
-https://downloads.wordpress.org/plugin/genesis-connect-woocommerce.latest-stable.zip
+https://downloads.wordpress.org/plugin/connect-genesis-woocommerce.latest-stable.zip
 https://github.com/VR51/Genesis-Dynamik-Image-Rotator/archive/master.zip

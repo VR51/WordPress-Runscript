@@ -56,17 +56,21 @@ function vr_grab_remote_files($file, $type, $destdir) {
 	if ( $file_handle = fopen(plugin_dir_path(__FILE__).$path."/$file", "r") ) {
 
 		while (!feof($file_handle)) {
-			$line = trim(fgets($file_handle));
 
-			copy("$line", "$destdir/file.zip");
-			$zip = new ZipArchive;
-			$res = $zip->open("$destdir/file.zip");
-			if ($res === TRUE) {
-				$zip->extractTo($destdir);
-				$zip->close();
-				unlink("$destdir/file.zip");
+			if ( !empty(stripos("$line", '.zip')) && !empty( esc_url_raw( $line, array('http', 'https', 'ftp', 'ftps') ) ) ) {
+
+					$line = trim(fgets($file_handle));
+					copy("$line", "$destdir/file.zip");
+					$zip = new ZipArchive;
+					$res = $zip->open("$destdir/file.zip");
+					if ($res === TRUE) {
+						$zip->extractTo($destdir);
+						$zip->close();
+						unlink("$destdir/file.zip");
+					}
+
 			}
-
+			
 		}
 		fclose($file_handle);
 
@@ -161,22 +165,3 @@ if ( isset( $options["wp_runscript_checkbox_Local_Plugins"] ) ) {
 if ( isset( $options["wp_runscript_checkbox_Local_Themes"] ) ) {
 	vr_deploy_payload("$payloadthemepath","$wpthemepath");
 }
-
-/*
-wp_nonce_field( plugin_basename( __FILE__ ), 'wordpress_runscript_nonce',true,false);
-wp_create_nonce( 'wordpress_runscript_nonce' );
-*/
-
-/**
-*
-*	Self deactivate the Runscript
-*
-**/
-
-/*
-function vr_run_script_deactivate() {
-	deactivate_plugins( plugin_basename( __FILE__ ) );
-}
-
-add_action( 'admin_init', 'vr_run_script_deactivate' );
-*/

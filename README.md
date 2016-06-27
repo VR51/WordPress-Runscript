@@ -20,9 +20,10 @@ Collections that ship with WP Runscript:
 - Experimental
 - Feature Plugins
 - Genesis Theme Plugins
+- Interesting Oddities
 - Media Plugins
 - Optimization
-- Security and Backup Plugins
+- Security and Backup
 - Useful Widgets
 - WooCommerce Plugins
 - Themes
@@ -88,11 +89,16 @@ To always get the most recent stable version of a plugin hosted on wordpress.org
 * WordPress Runscipt will happily refresh an existing plugin install but because it does not remove existing files (only overwrites same named files) WP Runscript is not suited to malware removal application unless existing files are removed manually.
 
 # Donations Welcome
-Did you find this plugin useful? Buy me a new toy to play with.
+If you found this plugin useful, please consider sending a donation to pay toward development time of WordPress Runscript. Most donations are between $5 and $50. We appreciate them all :)
 
 Send donations to https://paypal.me/vr51
 
 # Changelog
+## 2.0.1
+- Added check to confirm URLs in plugin and theme lists are properly formatted URLs and to confirm they contain the text '.zip'. This is a security precaution.
+- Added remote URL protocol check. URLs listed in plugin and theme checks must use either HTTP, HTTPS, FTP or an FTPS protocol.
+- A few more items added to the plugin lists.
+
 ## 2.0.0
 - Complete overhaul of code, configuration and processing.
 - Removed need to edit variables in the main plugin file.

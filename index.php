@@ -5,8 +5,8 @@ Plugin URI: https://github.com/VR51/WordPress-Runscript
 Description: WordPress plugin and theme package deployment. This plugin will run as soon as activated. Install WordPress Runscript as you do any other plugin. Use to install basic plugins, eCommerce plugins, admin tools, feature extras and themes. Deploy specific packages.
 Author: Lee Hodson
 Author URI: https://vr51.com
-Version: 2.0.0
-License: GPL
+Version: 2.0.1
+License: GPL3
 */
 
 /**
@@ -18,7 +18,7 @@ License: GPL
 *	When we say 'install' we mean download from some URL and install the file into wp-content/plugins or wp-content/themes
 *	When we say 'deploy' we mean move plugin and theme packages from WordPress-Runscript-master/wp-content/plugins or WordPress-Runscipt-master/wp-content/themes and deploy them into wp-content/plugins or wp-content/themes.
 *
-* Plugins and themes installed by this plugin can be hosted anywhere on the internet.
+* Plugins and themes installed from plugin and theme lists by the WordPress Runscript plugin can be hosted anywhere on the internet. The URLs must use either http, https, ftp or an ftps protocols.
 * Plugins and themes deployed by this plugin must be stored in zip format in the relevent subdirectory of the 'WordPress-Runscipt-master' directory.
 * 
 * 1) Download the plugin and unpack it.
@@ -42,8 +42,20 @@ License: GPL
 *
 *	From: https://downloads.wordpress.org/plugin/wp-admin-ui-customize.1.5.9.zip
 *	To:  https://downloads.wordpress.org/plugin/wp-admin-ui-customize.latest-stable.zip
+*
+*	
+*
 **/
 
+/**
+*
+* DONATIONS
+*
+* If you found this plugin useful, please consider sending a donation to pay toward development time of WordPress Runscript. Most donations are between $5 and $50. We appreciate them all :)
+*
+* Send donations to https://paypal.me/vr51
+*
+**/
 
 
 /**
