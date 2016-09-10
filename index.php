@@ -5,7 +5,8 @@ Plugin URI: https://github.com/VR51/WordPress-Runscript
 Description: WordPress plugin and theme package deployment. This plugin will run as soon as activated. Install WordPress Runscript as you do any other plugin. Use to install basic plugins, eCommerce plugins, admin tools, feature extras and themes. Deploy specific packages.
 Author: Lee Hodson
 Author URI: https://vr51.com
-Version: 2.0.1
+Version: 2.0.2
+Stable Tag: 2.0.2
 License: GPL3
 */
 

@@ -94,6 +94,10 @@ If you found this plugin useful, please consider sending a donation to pay towar
 Send donations to https://paypal.me/vr51
 
 # Changelog
+## 2.0.2
+- Additional URLs added to lists: Tools.txt and Feature Plugins.txt
+- Added WordPress 4.6.1 compatibility flag
+
 ## 2.0.1
 - Added check to confirm URLs in plugin and theme lists are properly formatted URLs and to confirm they contain the text '.zip'. This is a security precaution.
 - Added remote URL protocol check. URLs listed in plugin and theme checks must use either HTTP, HTTPS, FTP or an FTPS protocol.
