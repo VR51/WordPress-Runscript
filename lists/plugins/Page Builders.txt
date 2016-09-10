@@ -1,0 +1,3 @@
+https://downloads.wordpress.org/plugin/unyson.latest-stable.zip
+https://downloads.wordpress.org/plugin/live-composer-page-builder.latest-stable.zip
+https://downloads.wordpress.org/plugin/tailor.latest-stable.zip
