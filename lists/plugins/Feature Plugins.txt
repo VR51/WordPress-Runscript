@@ -2,3 +2,4 @@ https://downloads.wordpress.org/plugin/ajax-search-lite.latest-stable.zip
 https://downloads.wordpress.org/plugin/wpdiscuz.latest-stable.zip
 https://downloads.wordpress.org/plugin/paid-memberships-pro.latest-stable.zip
 https://downloads.wordpress.org/plugin/eventupon-calendar.latest-stable.zip
+https://downloads.wordpress.org/plugin/wp-scraper.latest-stable.zip

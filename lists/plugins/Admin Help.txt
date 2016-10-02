@@ -1,0 +1,4 @@
+https://downloads.wordpress.org/plugin/better-admin-help-tabs.latest-stable.zip
+https://downloads.wordpress.org/plugin/better-admin-pointers.latest-stable.zip
+https://downloads.wordpress.org/plugin/wp-help.latest-stable.zip
+https://downloads.wordpress.org/plugin/add-post-type-instructions.latest-stable.zip

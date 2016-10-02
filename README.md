@@ -3,6 +3,8 @@ Simple WordPress plugin and theme deployment. WordPress Runscript installs plugi
 
 Use this WordPress plugin to install and deploy preferred plugin and theme sets.
 
+Version 2.0.3
+
 # Use Case
 * Quickly install plugin and theme packages
 * Quickly reset plugin and theme packages
@@ -42,6 +44,18 @@ The terminology:
 
 Plugins and themes 'installed' by WordPress Runscript can be hosted anywhere on the internet. The URL of the zip file must be publicly accessible.
 Plugins and themes 'deployed' by WordPress Runscript must be stored in zip format in the relevent subdirectory of the 'WordPress-Runscipt-master' directory.
+
+# Version guide
+The plugin version number has three groups of digits separated by full-stops, like this: 1.2.3
+
+The first component, in this case 1, is the plugin file's major build release number.
+The second component, in this case 2, is the plugin file's minor build release number.
+The third component, in this case 3, signifies an update to one or more of the plugin or theme lists that ship with WP Runscript.
+
+For example,
+
+Assume version 2.0.0 is our base version. Version 2.1.0 indicates a minor change to the plugin which could be a code edit or a text edit. Version 2.0.1 indicates that one of the plugin or theme lists has been updated or that a new plugin or theme list has been added (or an existing list removed). Version 3.0.0 indicates the main plugin file has been significantly altered in such a way that either/both the plugin's functionality has been enhanced or the method of operation has been enhanced.
+
 
 # Instructions
 To use WP Runscript as is:

@@ -3,3 +3,4 @@ https://downloads.wordpress.org/plugin/heartbeat-control.latest-stable.zip
 https://downloads.wordpress.org/plugin/wp-optimize.latest-stable.zip
 https://downloads.wordpress.org/plugin/comet-cache.latest-stable.zip
 https://downloads.wordpress.org/plugin/cloudflare.latest-stable.zip
+https://downloads.wordpress.org/plugin/plugin-logic.latest-stable.zip
